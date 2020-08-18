@@ -97,8 +97,10 @@ function findEmployeeByFirstName(records, firstName) {
     );
 }
 
-let calculatePayroll = function(arrayOfEmployeeRecords){
-    return arrayOfEmployeeRecords.reduce(function(memo, rec){
-        return memo + allWagesFor(rec)
-    }, 0)
+function calculatePayroll(records) {
+    return records.reduce(
+        function(sum, record) {
+            return sum + allWagesFor(reocrd);
+        }, 0
+    );
 }
