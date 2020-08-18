@@ -97,16 +97,9 @@ function findEmployeeByFirstName(records, firstName) {
     );
 }
 
-let  calculatePayroll = function(records) {
-    return records.reduce(
-        function(sum, record) {
-            return sum + allWagesFor(reocrd);
+let  calculatePayroll = function(arrayOfEmployeeRecords) {
+    return arrayOfEmployeeRecords.reduce(function(sum, record) {
+            return sum + allWagesFor(record);
         }, 0
     )
-}
-
-let calculatePayroll = function(arrayOfEmployeeRecords){
-    return arrayOfEmployeeRecords.reduce(function(memo, rec){
-        return memo + allWagesFor(rec)
-    }, 0)
 }
