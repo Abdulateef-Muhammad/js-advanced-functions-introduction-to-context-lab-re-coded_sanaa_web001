@@ -100,7 +100,7 @@ function findEmployeeByFirstName(records, firstName) {
 function calculatePayroll(records) {
     return records.reduce(
         function(sum, record) {
-            return sum + wagesEarnedOnDate(record, dateStamp);
+            return sum + allWagesFor(reocrd);
         }, 0
     );
 }
