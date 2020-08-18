@@ -23,23 +23,31 @@ function createTimeInEvent(employeeRecord, dateStamp) {
     let date = dateStamp.split(' ')[0];
     let hour = dateStamp.split(' ')[1];
 
-    return employeeRecord['timeInEvents'].push({
+    employeeRecord['timeInEvents'].push({
         type: 'TimeIn',
         hour: parseInt(hour, 10),
         date: date
     });
+
+    return employeeRecord;
 }
+
+let bpRecord = createEmployeeRecord(["Byron", "Poodle", "Mascot", 3])
+let updatedBpRecord = createTimeInEvent(bpRecord, "2014-02-28 1400")
+console.log(updatedBpRecord);
 
 
 function createTimeOutEvent(employeeRecord, dateStamp) {
     let date = dateStamp.split(' ')[0];
     let hour = dateStamp.split(' ')[1];
 
-    return employeeRecord['timeOutEvents'].push({
+    employeeRecord['timeOutEvents'].push({
         type: 'TimeOut',
         hour: parseInt(hour, 10),
         date: date
     });
+
+    return employeeRecord
 }
 
 
@@ -68,17 +76,17 @@ function allWagesFor(employeeRecord) {
     );
 }
 
-let cRecord = createEmployeeRecord(["Julius", "Caesar", "General", 27]);
+// let cRecord = createEmployeeRecord(["Julius", "Caesar", "General", 27]);
 
-let updatedBpRecord = createTimeInEvent(cRecord, "0044-03-15 0900");
-updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-15 1100");
+// let updatedBpRecord = createTimeInEvent(cRecord, "0044-03-15 0900");
+// updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-15 1100");
 
-updatedBpRecord = createTimeInEvent(cRecord, "0044-03-14 0900")
-updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-14 2100")
+// updatedBpRecord = createTimeInEvent(cRecord, "0044-03-14 0900")
+// updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-14 2100")
 
-console.log(allWagesFor(cRecord));
+// console.log(allWagesFor(cRecord));
 
-let hoursWorked = hoursWorkedOnDate(cRecord, '0044-03-15');
+// let hoursWorked = hoursWorkedOnDate(cRecord, '0044-03-15');
 // console.log(wagesEarnedOnDate(cRecord, '0044-03-15'));
 
 function findEmployeeByFirstName(records, firstName) {
