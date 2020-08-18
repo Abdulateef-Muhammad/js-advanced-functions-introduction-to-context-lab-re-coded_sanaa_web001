@@ -91,15 +91,27 @@ function allWagesFor(employeeRecord) {
 
 function findEmployeeByFirstName(records, firstName) {
     return records.find(
-        function(reocrd) {
+        function(record) {
             return record['firstName'] === firstName;
         }
     );
 }
 
-let  calculatePayroll = function(arrayOfEmployeeRecords) {
-    return arrayOfEmployeeRecords.reduce(function(sum, record) {
+let src = [
+    ["Loki", "Laufeysson-Odinsson", "HR Representative", 35],
+    ["Natalia", "Romanov", "CEO", 150]
+]
+let emps = createEmployeeRecords(src)
+let loki = findEmployeeByFirstName(emps, "Loki")
+
+console.log(loki);
+
+
+
+function calculatePayroll(records) {
+    return records.reduce(
+        function(sum, record) {
             return sum + allWagesFor(record);
         }, 0
-    )
+    );
 }
