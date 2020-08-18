@@ -68,17 +68,14 @@ function wagesEarnedOnDate(employeeRecord, dateStamp) {
     return employeeRecord.payPerHour * hoursWorkedOnDate(employeeRecord, dateStamp);
 }
 
-let allWagesFor = function(employee){
-    let eligibleDates = employee.timeInEvents.map(function(e){
-        return e.date
-    })
-
-    let payable = eligibleDates.reduce(function(memo, d){
-        return memo + wagesEarnedOnDate(employee, d)
-    }, 0)
-
-    return payable
+function allWagesFor(employeeRecord) {
+    return employeeRecord['timeInEvents'].reduce(
+        function(sum, item) {
+            return sum + wagesEarnedOnDate(employeeRecord, item.date);
+        }, 0
+    );
 }
+
 // let cRecord = createEmployeeRecord(["Julius", "Caesar", "General", 27]);
 
 // let updatedBpRecord = createTimeInEvent(cRecord, "0044-03-15 0900");
